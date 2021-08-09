@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import axios from 'axios';
 
-import NavigationContainer from './navigation/navigationContainer';
-import Auth from './pages/auth';
-import Signup from './pages/signup';
-import Shop from './pages/shop';
-import Checkout from './pages/checkout';
-import ThankYou from './pages/thankyou';
-import Profile from './pages/profile';
+// import NavigationContainer from './navigation/navigation-container';
+// import Auth from './pages/auth';
+// import Signup from './pages/signup';
+// import Shop from './pages/shop';
+// import Checkout from './pages/checkout';
+// import ThankYou from './pages/thankyou';
+// import Profile from './pages/profile';
 
 export default class App extends Component {
     constructor(props) {
@@ -73,30 +73,30 @@ export default class App extends Component {
         this.checkLoginStatus();
       }
 
-      authorizedPages() {
-          return [
-              <Route
-                key="shop"
-                path="./pages/shop"
-                component={Shop}
-              />,
-              <Route
-                key=""
-                path="./pages/checkout"
-                component={Checkout}
-              />,
-              <Route
-                key="checkout"
-                path="./pages/thank-you"
-                component={ThankYou}
-              />,
-              <Route
-                key="profile"
-                path="./pages/profile"
-                component={Profile}
-              />,
-          ];
-      }
+    //   authorizedPages() {
+    //       return [
+    //           <Route
+    //             key="shop"
+    //             path="./pages/shop"
+    //             component={Shop}
+    //           />,
+    //           <Route
+    //             key="checkout"
+    //             path="./pages/checkout"
+    //             component={Checkout}
+    //           />,
+    //           <Route
+    //             key="thank-you"
+    //             path="./pages/thank-you"
+    //             component={ThankYou}
+    //           />,
+    //           <Route
+    //             key="profile"
+    //             path="./pages/profile"
+    //             component={Profile}
+    //           />,
+    //       ];
+    //   }
   render() {
     return (
       <div className='container'>
@@ -108,7 +108,7 @@ export default class App extends Component {
                 />
 
                 <Switch>
-                    <Route exact path='/' component={Home} />
+                    {/* <Route exact path='/' component={Home} />
                     <Route
                         path='/'
                         render={(props) => (
@@ -119,9 +119,9 @@ export default class App extends Component {
                             />
                         )}
                     />
-                    <Route path='/signup' component={Signup} />
+                    <Route path='/signup' component={Signup} /> */}
                     {/* shop checkout thank you profile */}
-                    <Route
+                    {/* <Route
                         path='/shop'
                         render={(props) => (
                             <Shop {...props} loggedInStatus={this.state.loggedInStatus} />
@@ -144,7 +144,11 @@ export default class App extends Component {
                         render={(props) => (
                             <Shop {...props} loggedInStatus={this.state.loggedInStatus} />
                         )}
-                    />
+                    /> */}
+
+                    {this.state.loggedInStatus === 'LOGGED_IN'
+                        ? this.authorizedPages()
+                        :null}
                 </Switch>
               </div>
           </Router>

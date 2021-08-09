@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import axios from 'axios';
+import { FortAwesome } from '@fortawesome/react-fontawesome';
 
 // import NavigationContainer from './navigation/navigation-container';
 // import Auth from './pages/auth';
@@ -9,6 +10,7 @@ import axios from 'axios';
 // import Checkout from './pages/checkout';
 // import ThankYou from './pages/thankyou';
 // import Profile from './pages/profile';
+// import Icont from '../helpers/icons';
 
 export default class App extends Component {
     constructor(props) {

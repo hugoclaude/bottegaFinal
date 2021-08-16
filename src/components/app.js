@@ -3,14 +3,14 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import axios from 'axios';
 import { FortAwesome } from '@fortawesome/react-fontawesome';
 
-// import NavigationContainer from './navigation/navigation-container';
-// import Auth from './pages/auth';
+import NavigationContainer from './navigation/navigation-container';
+import Auth from './pages/auth';
 // import Signup from './pages/signup';
 // import Shop from './pages/shop';
 // import Checkout from './pages/checkout';
 // import ThankYou from './pages/thankyou';
 // import Profile from './pages/profile';
-// import Icont from '../helpers/icons';
+import Icons from '../helpers/icons';
 
 export default class App extends Component {
     constructor(props) {
@@ -110,7 +110,7 @@ export default class App extends Component {
                 />
 
                 <Switch>
-                    {/* <Route exact path='/' component={Home} />
+                    {/* <Route exact path='/' component={Home} /> */}
                     <Route
                         path='/'
                         render={(props) => (
@@ -121,7 +121,7 @@ export default class App extends Component {
                             />
                         )}
                     />
-                    <Route path='/signup' component={Signup} /> */}
+                    {/* <Route path='/signup' component={Signup} /> */}
                     {/* shop checkout thank you profile */}
                     {/* <Route
                         path='/shop'

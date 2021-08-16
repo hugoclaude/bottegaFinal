@@ -20,7 +20,7 @@ const NavigationComponent = (props) => {
             .delete('https://api.devcamp.space/logout', { withCredenatilas: true })
             .then(response => {
                 if (response.status === 200) {
-                    props.history.pysh('/');
+                    props.history.push('/');
                 }
                 return response.data;
             })
@@ -58,7 +58,8 @@ const NavigationComponent = (props) => {
             </div>
 
             <div className='right-side'>
-                {userName}
+                HUGO C CAYEROS
+                
                 {props.loggedInStatus === 'LOGGED_IN' ? (
                     <a onClick={handleSignOut}>
                         <FontAwesomeIcon icon='sign-out-alt' />

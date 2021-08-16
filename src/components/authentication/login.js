@@ -55,7 +55,7 @@ export default class Login extends Component {
     render() {
         return (
             <div>
-                <h1>LOGIN TO ACCESS THE E.STORE</h1>
+                <h1>Login to access the estore</h1>
 
                 <div>{this.state.errorText}</div>
 
@@ -67,7 +67,7 @@ export default class Login extends Component {
                             name='email'
                             plcaeholder='Your Email'
                             value={this.state.email}
-                            onchange={this.handleChange}
+                            onChange={this.handleChange}
                         />
 
                         <FontAwesomeIcon icon='lock' />
@@ -76,7 +76,7 @@ export default class Login extends Component {
                             name='passwrod'
                             plcaeholder='You password'
                             value={this.state.password}
-                            onchange={this.handleChange}
+                            onChange={this.handleChange}
                         />
 
                         <button className='btn' type='submit'>

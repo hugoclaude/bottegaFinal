@@ -1,14 +1,13 @@
-import { urlencoded } from 'express';
 import React, { Component } from 'react';
-import Login from '../auth/login';
+import Login from '../authentication/login';
 //import loginImg from '../../../static/assets/images/auth/login.jpn';
 
-export default class Auth extends component {
+export default class Auth extends Component {
     constructor(props) {
         super(props);
 
         this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
-        this.handleUnsuccessfulAuth = this.handleUnsuccessfulAuth.bing(this);
+        this.handleUnsuccessfulAuth = this.handleUnsuccessfulAuth.bind(this);
     }
 
     handleSuccessfulAuth() {
@@ -23,14 +22,8 @@ export default class Auth extends component {
     render() {
         return (
             <div className='auth-page-wrapper'>
-                <div
-                    className='left-column'
-                    style={{
-                        //backgroungImage: 'url(${loginImg})'
-                        backgroundColor: 'darkorange'
-                    }}
-                />
-                <div className='right-column'>
+                <div className='card-header'>Welcome to Navbar Industries</div>
+                <div className='card-body'>
                     <Login
                         handleSuccessfulAuth={this.handleSuccessfulAuth}
                         handleUnsuccessfulAuth={this.handleUnsuccessfulAuth}

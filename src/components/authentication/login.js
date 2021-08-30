@@ -73,7 +73,7 @@ export default class Login extends Component {
                         <FontAwesomeIcon icon='lock' />
                         <input
                             type='password'
-                            name='passwrod'
+                            name='password'
                             plcaeholder='You password'
                             value={this.state.password}
                             onChange={this.handleChange}

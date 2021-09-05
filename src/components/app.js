@@ -5,7 +5,7 @@ import { FortAwesome } from '@fortawesome/react-fontawesome';
 
 import NavigationContainer from './navigation/navigation-container';
 import Auth from './pages/auth';
-// import Signup from './pages/signup';
+import Signup from './pages/signup';
 // import Shop from './pages/shop';
 // import Checkout from './pages/checkout';
 // import ThankYou from './pages/thankyou';
@@ -121,7 +121,7 @@ export default class App extends Component {
                             />
                         )}
                     />
-                    {/* <Route path='/signup' component={Signup} /> */}
+                    <Route path='/signup' component={Signup} />
                     {/* shop checkout thank you profile */}
                     {/* <Route
                         path='/shop'

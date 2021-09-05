@@ -91,7 +91,7 @@ exports.isLoggedIn = async (req, res, next) => {
     if( req.cookieOptions.jwt ) {
         try{
             // 1) verify the token
-            const decoded = await promisfy(jwt.verify)(req.cookies.jwt,
+            const decoded = await promisify(jwt.verify)(req.cookies.jwt,
                 process.env.JWT_SECRET
                 );
                 console.log(result)

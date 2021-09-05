@@ -55,14 +55,15 @@ export default class Login extends Component {
     render() {
         return (
             <div>
-                <h1>Login to access the estore</h1>
+                <h1 className='login-header'>Please log in to access the estore</h1>
 
                 <div>{this.state.errorText}</div>
 
-                <form onSubmit={this.handleSubmit} className='auth-form-wrapper'>
+                <form action='/auth/login' method='POST' onSubmit={this.handleSubmit} className='auth-form-wrapper'>
                     <div className='form-group'>
                         <FontAwesomeIcon icon='envelope' />
                         <input
+                            className='auth-form-wrapper__email'
                             type='email'
                             name='email'
                             plcaeholder='Your Email'
@@ -72,6 +73,7 @@ export default class Login extends Component {
 
                         <FontAwesomeIcon icon='lock' />
                         <input
+                            className='auth-form-wrapper__password'
                             type='password'
                             name='password'
                             plcaeholder='You password'

@@ -1,5 +1,5 @@
-import {
-    setHeaderLinks,
-    setNavbarLinks,
-    changeNavbarActive
-} from './header'
+// import {
+//     setHeaderLinks,
+//     setNavbarLinks,
+//     changeNavbarActive
+// } from './headernavbar'

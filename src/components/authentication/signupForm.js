@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { redixForm, Field } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 
 import { FormInput, FormButton } from '../formFields';
 import Details from '../details';
@@ -9,7 +9,7 @@ import history from '../../history';
 
 class SignUpForm extends Component {
     render() {
-        const { className, handleSubmit} = this.props;
+        const { className, handleSubmit } = this.props;
         const info = [
             {
                 _id: 0,
@@ -70,3 +70,9 @@ class SignUpForm extends Component {
         )
     }
 }
+
+SignUpForm = reduxForm({
+    form: 'SignUpForm'
+})(SignUpForm);
+
+export default SignUpForm;

@@ -10,3 +10,7 @@ router.post('/login', authController.login);
 router.post('/logout', authController.logout);
 
 module.exports = router;
+
+export function Router() {
+    throw new Error('Function not implemented.');
+}

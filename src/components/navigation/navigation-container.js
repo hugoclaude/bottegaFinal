@@ -21,6 +21,7 @@ const NavigationComponent = (props) => {
             .then(response => {
                 if (response.status === 200) {
                     props.history.push('/');
+                    props.handleSuccessfulLogout();
                 }
                 return response.data;
             })
@@ -37,6 +38,12 @@ const NavigationComponent = (props) => {
                         Home
                     </NavLink>
                 </div>
+                
+                <div className='nav-link-wrapper'>
+                    <NavLink to='/signup' activeClassName='nav-link-active'>
+                        Signup
+                    </NavLink>
+                </div>
 
                 {props.loggedInStatus === "LOGGED_IN" ? (
                     dynamicLink('/shop', 'Shop')
@@ -49,12 +56,6 @@ const NavigationComponent = (props) => {
                 {props.loggedInStatus === "LOGGED_IN" ? (
                     dynamicLink('/profile', 'Profile')
                 ) : null}
-
-                <div className='nav-link-wrapper'>
-                    <NavLink exact to='/signup' activeClassName='nav-link-active'>
-                        Signup
-                    </NavLink>
-                </div>
             </div>
 
             <div className='right-side'>

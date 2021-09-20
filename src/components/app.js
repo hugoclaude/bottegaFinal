@@ -4,8 +4,8 @@ import axios from 'axios';
 import { FortAwesome } from '@fortawesome/react-fontawesome';
 
 import NavigationContainer from './navigation/navigation-container';
-import Auth from './pages/auth';
-import Signup from './pages/signup';
+import Auth from './pages/homeLogin';
+import SignUp from './pages/signup';
 // import Shop from './pages/shop';
 // import Checkout from './pages/checkout';
 // import ThankYou from './pages/thankyou';
@@ -31,7 +31,7 @@ export default class App extends Component {
           loggedInStatus: "LOGGED_IN",
         });
       }
-    
+
       handleUnsuccessfulLogin() {
         this.setState({
           loggedInStatus: "NOT_LOGGED_IN",
@@ -99,6 +99,7 @@ export default class App extends Component {
     //           />,
     //       ];
     //   }
+
   render() {
     return (
       <div className='container'>
@@ -106,23 +107,32 @@ export default class App extends Component {
               <div>
                 <NavigationContainer
                     loggedInStatus={this.state.loggedInStatus}
-                    handleSuccessfulLogin={this.handleSucessfulLogout}
+                    handleSuccessfulLogout={this.handleSucessfulLogout}
                 />
 
                 <Switch>
-                    {/* <Route exact path='/' component={Home} /> */}
                     <Route
-                        path='/'
-                        render={(props) => (
-                            <Auth
-                                {...props}
-                                handleSuccessfulLogin={this.handleSuccessfulLogin}
-                                handleUnsuccessfulLogin={this.handleUnsuccessfulLogin}
-                            />
-                        )}
+                       exact path='/' component={Auth}
+                        // render={(props) => (
+                        //     <Auth
+                        //         {...props}
+                        //         handleSuccessfulLogin={this.handleSuccessfulLogin}
+                        //         handleUnsuccessfulLogin={this.handleUnsuccessfulLogin}
+                        //     />
+                        // )}
                     />
-                    <Route path='/signup' component={Signup} />
+
+                    <Route path='/signup' exact component={SignUp} />
+
+                    {this.state.loggedInStatus === 'LOGGED_IN'
+                        ? this.authorizedPages()
+                        :null}
+
+
+
                     {/* shop checkout thank you profile */}
+
+
                     {/* <Route
                         path='/shop'
                         render={(props) => (
@@ -148,9 +158,7 @@ export default class App extends Component {
                         )}
                     /> */}
 
-                    {this.state.loggedInStatus === 'LOGGED_IN'
-                        ? this.authorizedPages()
-                        :null}
+
                 </Switch>
               </div>
           </Router>

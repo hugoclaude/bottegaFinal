@@ -59,7 +59,7 @@ const NavigationComponent = (props) => {
             </div>
 
             <div className='right-side'>
-                HUGO C CAYEROS
+                NAVBAR INDUSTRIES
                 
                 {props.loggedInStatus === 'LOGGED_IN' ? (
                     <a onClick={handleSignOut}>

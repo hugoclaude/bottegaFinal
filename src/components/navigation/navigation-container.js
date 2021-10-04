@@ -34,7 +34,7 @@ const NavigationComponent = (props) => {
         <div className='nav-wrapper'>
             <div className='left-side'>
                 <div className='nav-link-wrapper'>
-                    <NavLink exact to='/auth' activeClassName='nav-link-active'>
+                    <NavLink exact to='/' activeClassName='nav-link-active'>
                         Home
                     </NavLink>
                 </div>

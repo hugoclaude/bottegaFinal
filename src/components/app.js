@@ -4,7 +4,7 @@ import axios from 'axios';
 import { FortAwesome } from '@fortawesome/react-fontawesome';
 
 import NavigationContainer from './navigation/navigation-container';
-import Auth from './pages/homeLogin';
+import Auth from './pages/auth';
 import SignUp from './pages/signup';
 // import Shop from './pages/shop';
 // import Checkout from './pages/checkout';
@@ -47,6 +47,7 @@ export default class App extends Component {
     checkLoginStatus() {
         return axios
         // use user.js from './actions/users' for the get statement
+       // http://localhost/phpmyadmin/index.php?route=/sql&server=1&db=nodejs-login&table=users&pos=0
         .get("https://api.devcamp.simport pace/logged_in", {
             withCredentials: true,
           })
@@ -107,8 +108,10 @@ export default class App extends Component {
               <div>
                 <NavigationContainer
                     loggedInStatus={this.state.loggedInStatus}
-                    handleSuccessfulLogout={this.handleSucessfulLogout}
+                    handleSuccessfulLogout={this.handleSuccessfulLogout}
                 />
+
+                {/* <h2>{this.state.loggedInStatus}</h2> */}
 
                 <Switch>
                     <Route

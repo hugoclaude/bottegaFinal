@@ -6,75 +6,77 @@ import { FortAwesome } from '@fortawesome/react-fontawesome';
 import NavigationContainer from './navigation/navigation-container';
 import Auth from './pages/auth';
 import SignUp from './pages/signup';
-// import Shop from './pages/shop';
+import Shop from './pages/shop/shop';
 // import Checkout from './pages/checkout';
 // import ThankYou from './pages/thankyou';
 // import Profile from './pages/profile';
 import Icons from '../helpers/icons';
 
+const authController = require('../controllers/auth');
+
 export default class App extends Component {
-    constructor(props) {
-        super(props);
+    // constructor(props) {
+    //     super(props);
     
-        Icons();
-        this.state = {
-          loggedInStatus: "NOT_LOGGED_IN",
-        };
+    //     Icons();
+    //     this.state = {
+    //       loggedInStatus: "NOT_LOGGED_IN",
+    //     };
     
-        this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
-        this.handleUnsuccessfulLogin = this.handleUnsuccessfulLogin.bind(this);
-        this.handleSuccessfulLogout = this.handleSuccessfulLogout.bind(this);
-      }
+    //     this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
+    //     this.handleUnsuccessfulLogin = this.handleUnsuccessfulLogin.bind(this);
+    //     this.handleSuccessfulLogout = this.handleSuccessfulLogout.bind(this);
+    //   }
     
-      handleSuccessfulLogin() {
-        this.setState({
-          loggedInStatus: "LOGGED_IN",
-        });
-      }
+    //   handleSuccessfulLogin() {
+    //     this.setState({
+    //       loggedInStatus: "LOGGED_IN",
+    //     });
+    //   }
 
-      handleUnsuccessfulLogin() {
-        this.setState({
-          loggedInStatus: "NOT_LOGGED_IN",
-        });
-      }
+    //   handleUnsuccessfulLogin() {
+    //     this.setState({
+    //       loggedInStatus: "NOT_LOGGED_IN",
+    //     });
+    //   }
     
-      handleSuccessfulLogout() {
-        this.setState({
-          loggedInStatus: "NOT_LOGGED_IN",
-        });
-      }
+    //   handleSuccessfulLogout() {
+    //     this.setState({
+    //       loggedInStatus: "NOT_LOGGED_IN",
+    //     });
+    //   }
     
-    checkLoginStatus() {
-        return axios
-        // use user.js from './actions/users' for the get statement
-       // http://localhost/phpmyadmin/index.php?route=/sql&server=1&db=nodejs-login&table=users&pos=0
-        .get("https://api.devcamp.simport pace/logged_in", {
-            withCredentials: true,
-          })
-          .then((response) => {
-            const loggedIn = response.data.logged_in;
-            const loggedInStatus = this.state.loggedInStatus;
+    // checkLoginStatus() {
+    //     return axios
+    //     // use user.js from './actions/users' for the get statement
+    //    // http://localhost/phpmyadmin/index.php?route=/sql&server=1&db=nodejs-login&table=users&pos=0
+    //     .get("https://api.devcamp.simport pace/logged_in", {
+    //         withCredentials: true,
+    //       })
+    //       .then((response) => {
+    //         const loggedIn = response.data.logged_in;
+    //         const loggedInStatus = this.state.loggedInStatus;
     
-            if (loggedIn && loggedInStatus === "LOGGED_IN") {
-              return loggedIn;
-            } else if (loggedIn && loggedInStatus === "NOT_LOGGED_IN") {
-              this.setState({
-                loggedInStatus: "LOGGED_IN",
-              });
-            } else if (!loggedIn && loggedInStatus === "LOGGED_IN") {
-              this.setState({
-                loggedInStatus: "NOT_LOGGED_IN",
-              });
-            }
-          })
-          .catch((error) => {
-            console.log("Error", error);
-          });
-      }
+    //         if (loggedIn && loggedInStatus === "LOGGED_IN") {
+    //           return loggedIn;
+    //         } else if (loggedIn && loggedInStatus === "NOT_LOGGED_IN") {
+    //           this.setState({
+    //             loggedInStatus: "LOGGED_IN",
+    //           });
+    //         } else if (!loggedIn && loggedInStatus === "LOGGED_IN") {
+    //           this.setState({
+    //             loggedInStatus: "NOT_LOGGED_IN",
+    //           });
+    //         }
+    //       })
+    //       .catch((error) => {
+    //         console.log("Error", error);
+    //       });
+    //   }
 
-      componentDidMount() {
-        this.checkLoginStatus();
-      }
+    //   componentDidMount() {
+    //     this.checkLoginStatus();
+    //   }
 
     //   authorizedPages() {
     //       return [
@@ -131,18 +133,13 @@ export default class App extends Component {
                         ? this.authorizedPages()
                         :null}
 
-
-
-                    {/* shop checkout thank you profile */}
-
-
-                    {/* <Route
-                        path='/shop'
-                        render={(props) => (
-                            <Shop {...props} loggedInStatus={this.state.loggedInStatus} />
-                        )}
-                    />
                     <Route
+                        path='/shop' exact component={Shop}
+                        // render={(props) => (
+                        //     <Shop {...props} loggedInStatus={this.state.loggedInStatus} />
+                        // )}
+                    />
+                    {/* <Route
                         path='/checkout'
                         render={(props) => (
                             <Checkout {...props} loggedInStatus={this.state.loggedInStatus} />

@@ -2,6 +2,7 @@ import mysql from 'mysql';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import { promisify } from 'util';
+import React, { Component } from 'react';
 
 const db = mysql.createConnection({
     host: process.env.DATABSE_HOST,
@@ -10,7 +11,7 @@ const db = mysql.createConnection({
     database: process.env.DATABASE
 });
 
-exports.login = async (req, res) => {
+exports.authorize = async (req, res) => {
     try {
         const { email, password } = req.body;
 
@@ -54,7 +55,7 @@ exports.login = async (req, res) => {
 exports.register = (req, res) => {
     console.log(req.body);
 
-    const { name, email, password, passwordConfirm } = req.body;
+    const { name, email, password, confirmPassword } = req.body;
 
     db.query("SELECT email FROM users WHERE email = ?", [email], async (error, results) => {
         if(error) {
@@ -65,7 +66,7 @@ exports.register = (req, res) => {
             return res.render('register', {
                 message: 'Email already in use',
             });
-        } else if(password !== passwordConfirm) {
+        } else if(password !== confirmPassword) {
             return res.render('register', {
                 message: "Passwords do not match",
             });

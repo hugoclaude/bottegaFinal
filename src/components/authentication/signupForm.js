@@ -38,12 +38,12 @@ class SignUpForm extends Component {
                 placeholder='Email'
                 name='email'
                 component={FormInput}/>
-                <Field className='sign-up-form__confirmEmail'
+                {/* <Field className='sign-up-form__confirmEmail'
                 type='email'
                 title='Email'
                 placeholder='Confirm Email'
                 name='email'
-                component={FormInput}/>
+                component={FormInput}/> */}
                 <Field className='sign-up-form__password'
                 type='password'
                 title='Password'

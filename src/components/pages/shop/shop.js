@@ -1,4 +1,4 @@
-import React, { Component } from 'raect';
+import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import * as actions from '../../../actions';
@@ -58,7 +58,7 @@ class Shop extends Component {
                     {
                         this.props.filteredProducs.map(product => {
                             return (
-                                <ShopProducts{ ...product} key={product._id} />
+                                <ShopProduct { ...product} key={product._id} />
                             )
                         })
                     }

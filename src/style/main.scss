@@ -5,6 +5,13 @@
 @import "./auth";
 @import "./button";
 
+
+// AUTH
 @import "./signup.scss";
 @import "./form-fields.scss";
 @import "./details.scss";
+
+// SHOP
+@import 'shop/shop';
+@import 'shop/shop-search-bar';
+@import 'shop/product';

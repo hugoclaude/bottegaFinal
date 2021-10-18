@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Quantity from '../quantity';
-import GreenPriceTag from '../greenPriceTag';
+import Quantity from '../../quantity';
+import GreenPriceTag from '../../greenPriceTag';
 
 import * as actions from '../../../actions';
 import { connect } from 'react-redux';

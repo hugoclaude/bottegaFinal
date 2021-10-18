@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { reduxForm, field } from 'reduc-form';
+import { reduxForm, field } from 'redux-form';
 
 function FormSearchBar(props) {
     return (

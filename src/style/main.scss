@@ -12,6 +12,8 @@
 @import "./details.scss";
 
 // SHOP
-@import 'shop/shop';
-@import 'shop/shop-search-bar';
-@import 'shop/product';
+@import 'shop/shop.scss';
+@import 'shop/shop-search-bar.scss';
+@import 'shop/shop-product.scss';
+@import 'shop/shop-cart.scss';
+@import 'shop/cart-product.scss';

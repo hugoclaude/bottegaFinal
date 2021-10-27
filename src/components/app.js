@@ -7,7 +7,7 @@ import NavigationContainer from './navigation/navigation-container';
 import Auth from './pages/auth';
 import SignUp from './pages/signup';
 import Shop from './pages/shop/shop';
-// import Checkout from './pages/checkout';
+import Checkout from './pages/checkout';
 // import ThankYou from './pages/thankyou';
 // import Profile from './pages/profile';
 import Icons from '../helpers/icons';

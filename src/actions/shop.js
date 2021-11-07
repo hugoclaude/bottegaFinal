@@ -20,7 +20,7 @@ export function filterProductsWithCategoryId(_id) {
     })
 }
 
-export function shopCategories() {
+export function fetchShopCategories() {
     return ({
         type: SET_SHOP_CATEGORIES,        
             payload: [
@@ -56,7 +56,7 @@ export function shopCategories() {
         })
     }
 
-    export function shopProducts() {
+    export function fetchShopProducts() {
         return ({
             type: SET_SHOP_PRODUCTS,
             payload: [

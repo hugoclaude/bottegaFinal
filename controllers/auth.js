@@ -1,17 +1,16 @@
-// import mysql from 'mysql';
-// import jwt from 'jsonwebtoken';
-// import bcrypt from 'bcryptjs';
-// import { promisify } from 'util';
-
+// const mysql = require("mysql");
+// const jwt = require("jsonwebtoken");
+// const bcrypt = require("bcryptjs");
+// const { promisify } = require('util');
 
 // const db = mysql.createConnection({
-//     host: process.env.DATABSE_HOST,
-//     user: process.env.DATABSE_USER,
+//     host: process.env.DATABASE_HOST,
+//     user: process.env.DATABASE_USER,
 //     password: process.env.DATABASE_PASSWORD,
 //     database: process.env.DATABASE
 // });
 
-// exports.authorize = async (req, res) => {
+// exports.login = async (req, res) => {
 //     try {
 //         const { email, password } = req.body;
 
@@ -21,7 +20,7 @@
 //             })
 //         }
 
-//         db.query('SELECT * FROM uesrs WHERE email =?', [email], async (error, results) => {
+//         db.query('SELECT * FROM uesrs WHERE email = ?', [email], async (error, results) => {
 //             console.log(results);
 //             if( !results || !(await bcrypt.compare(passwrod, results[0].password)) ) {
 //                 res.status(401).render('login', {
@@ -55,7 +54,7 @@
 // exports.register = (req, res) => {
 //     console.log(req.body);
 
-//     const { name, email, password, confirmPassword } = req.body;
+//     const { name, email, password, passwordConfirm } = req.body;
 
 //     db.query("SELECT email FROM users WHERE email = ?", [email], async (error, results) => {
 //         if(error) {
@@ -66,7 +65,7 @@
 //             return res.render('register', {
 //                 message: 'Email already in use',
 //             });
-//         } else if(password !== confirmPassword) {
+//         } else if(password !== passwordConfirm) {
 //             return res.render('register', {
 //                 message: "Passwords do not match",
 //             });
@@ -78,7 +77,7 @@
 //         db.query('INSERT INTO users SET ?', {name: name, email: email, password: hashedPassword}, (error, results) => {
 //             if(error) {
 //                 console.log(error);
-//             } else {
+//             }else {
 //                 console.log(results)
 //                 return res.render('register', {
 //                     message: 'User registered'
@@ -96,7 +95,8 @@
 //                 process.env.JWT_SECRET
 //                 );
 //                 console.log(result)
-//             // 2check if user still exists
+
+//             // 2) check if user still exists
 //             db.query('SELECT * FROM users WHERE id = ?', [decoded.id], (error, result) => {
 //                 console.log(result);
 

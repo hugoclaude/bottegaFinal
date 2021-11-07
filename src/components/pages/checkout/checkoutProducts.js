@@ -1,10 +1,10 @@
 import React, { Component} from 'react';
 
-import { Connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 import CheckoutProduct from './checkoutProduct';
 
-class CheckoutProduct extends Component {
+class CheckoutProducts extends Component {
     render () {
         const { className } = this.props;
         return (
@@ -29,4 +29,4 @@ function mapStateToProps(state) {
 
 CheckoutProducts = connect(mapStateToProps)(CheckoutProducts);
 
-export default CheckoutProduct;
+export default CheckoutProducts;

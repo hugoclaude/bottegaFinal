@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../../actions';
 
-// import PageTitle from '../pageTitle';
+import PageTitle from '../../pageTitle';
 import CheckoutForm from './checkoutForm';
 
 class Checkout extends Component {
@@ -17,7 +17,7 @@ class Checkout extends Component {
         console.log('fields');
     }
 
-    render() {
+    render () {
         let subtotal= 0;
         this.props.cartProducts.map(cartProduct => {
             subtotal += cartProduct.quantity * cartProduct.product.price;

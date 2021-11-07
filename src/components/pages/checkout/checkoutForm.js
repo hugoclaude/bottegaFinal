@@ -43,7 +43,7 @@ class CheckoutForm extends Component {
                     </div>
                     <div className='checkout-details__subtotal checkout-detail'>
                         <div className='checkout-details__title'>Tax</div>
-                        <div className='checkout-details__price'>$tax}</div>
+                        <div className='checkout-details__price'>${tax}</div>
                     </div>
                     <div className='checkout-details__subtotal checkout-detail'>
                         <div className='checkout-details__title'>Shipping</div>

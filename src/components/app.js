@@ -7,7 +7,7 @@ import NavigationContainer from './navigation/navigation-container';
 import Auth from './pages/auth';
 import SignUp from './pages/signup';
 import Shop from './pages/shop/shop';
-import Checkout from './pages/checkout';
+import Checkout from './pages/checkout/checkout';
 // import ThankYou from './pages/thankyou';
 // import Profile from './pages/profile';
 import Icons from '../helpers/icons';
@@ -46,45 +46,45 @@ export default class App extends Component {
         });
       }
     
-    checkLoginStatus() {
-        return axios
-        // use user.js from './actions/users' for the get statement
-       // http://localhost/phpmyadmin/index.php?route=/sql&server=1&db=nodejs-login&table=users&pos=0
-        .get("https://api.devcamp.simport pace/logged_in", {
-            withCredentials: true,
-          })
-          .then((response) => {
-            const loggedIn = response.data.logged_in;
-            const loggedInStatus = this.state.loggedInStatus;
+    // checkLoginStatus() {
+    //     return axios
+    //     // use user.js from './actions/users' for the get statement
+    //    // http://localhost/phpmyadmin/index.php?route=/sql&server=1&db=nodejs-login&table=users&pos=0
+    //     .get("https://api.devcamp.simport pace/logged_in", {
+    //         withCredentials: true,
+    //       })
+    //       .then((response) => {
+    //         const loggedIn = response.data.logged_in;
+    //         const loggedInStatus = this.state.loggedInStatus;
     
-            if (loggedIn && loggedInStatus === "LOGGED_IN") {
-              return loggedIn;
-            } else if (loggedIn && loggedInStatus === "NOT_LOGGED_IN") {
-              this.setState({
-                loggedInStatus: "LOGGED_IN",
-              });
-            } else if (!loggedIn && loggedInStatus === "LOGGED_IN") {
-              this.setState({
-                loggedInStatus: "NOT_LOGGED_IN",
-              });
-            }
-          })
-          .catch((error) => {
-            console.log("Error", error);
-          });
-      }
+    //         if (loggedIn && loggedInStatus === "LOGGED_IN") {
+    //           return loggedIn;
+    //         } else if (loggedIn && loggedInStatus === "NOT_LOGGED_IN") {
+    //           this.setState({
+    //             loggedInStatus: "LOGGED_IN",
+    //           });
+    //         } else if (!loggedIn && loggedInStatus === "LOGGED_IN") {
+    //           this.setState({
+    //             loggedInStatus: "NOT_LOGGED_IN",
+    //           });
+    //         }
+    //       })
+    //       .catch((error) => {
+    //         console.log("Error", error);
+    //       });
+    //   }
 
-      componentDidMount() {
-        this.checkLoginStatus();
-      }
+    //   componentDidMount() {
+    //     this.checkLoginStatus();
+    //   }
 
-      authorizedPages() {
-          return [
-              <Route
-                key="shop"
-                path="./pages/shop"
-                component={Shop}
-              />,
+    //   authorizedPages() {
+    //       return [
+    //           <Route
+    //             key="shop"
+    //             path="./pages/shop"
+    //             component={Shop}
+    //           />,
     //           <Route
     //             key="checkout"
     //             path="./pages/checkout"
@@ -100,8 +100,8 @@ export default class App extends Component {
     //             path="./pages/profile"
     //             component={Profile}
     //           />,
-          ];
-      }
+    //       ];
+    //   }
 
   render() {
     return (
@@ -135,17 +135,17 @@ export default class App extends Component {
 
                     <Route
                         path='/shop' exact component={Shop}
-                        render={(props) => (
-                            <Shop {...props} loggedInStatus={this.state.loggedInStatus} />
-                        )}
-                    />
-                    {/* <Route
-                        path='/checkout'
-                        render={(props) => (
-                            <Checkout {...props} loggedInStatus={this.state.loggedInStatus} />
-                        )}
+                        // render={(props) => (
+                        //     <Shop {...props} loggedInStatus={this.state.loggedInStatus} />
+                        // )}
                     />
                     <Route
+                        path='/checkout' exact component={Checkout}
+                        // render={(props) => (
+                        //     <Checkout {...props} loggedInStatus={this.state.loggedInStatus} />
+                        // )}
+                    />
+                    {/* <Route
                         path='/thankyou'
                         render={(props) => (
                             <ThankYou {...props} loggedInStatus={this.state.loggedInStatus} />

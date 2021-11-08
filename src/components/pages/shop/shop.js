@@ -9,8 +9,8 @@ import CartButton from './cartButton';
 
 class Shop extends Component {
 
-    constructor () {
-        super ()
+    constructor() {
+        super()
         this.state = {
             showCart: true
         }
@@ -21,7 +21,7 @@ class Shop extends Component {
             {
                 _id: 0,
                 title: 'Login',
-                path: './signin'
+                path: '/signin'
             }
         ]
         this.props.setHeaderLinks(headerLinks);
@@ -31,7 +31,7 @@ class Shop extends Component {
         this.props.fetchShopProduct();
     }
 
-    shouldComponentsUpdate(nextProps) {
+    shouldComponentUpdate(nextProps) {
         if(this.props != nextProps) {
             this.props.setNavbarLinks(nextProps.categories, (_id) => this.props.filterProductsWithCategoryId(_id));
         }
@@ -46,7 +46,7 @@ class Shop extends Component {
         if(document.getElementById('shop-cart').classList.contains('cart-hidden')) {
             document.getElementById('shop-cart').classList.remove('cart-hidden');
         }else {
-            document.getElementById('shopCart').classList.add('cart-hidden');
+            document.getElementById('sho-cart').classList.add('cart-hidden');
         }
     }
 
@@ -56,15 +56,15 @@ class Shop extends Component {
                 <ShopSearchBar onSubmit={this.onSubmit} className='shop__search-bar'/>
                 <div className='shop__products'>
                     {
-                        this.props.filteredProducs.map(product => {
+                        this.props.filteredProducts.map(product => {
                             return (
-                                <ShopProduct { ...product} key={product._id} />
+                                <ShopProduct {...product} key={product._id} />
                             )
                         })
                     }
                 </div>
                 {
-                    this.state.showcart ? <ShopCart className='shop__cart' /> : ''
+                    this.state.showCart ? <ShopCart className='shop__cart' /> : ''
                 }
 
                 <CartButton onClick={this.handleAddToCart} className='shop__cart-button' icon='fas fa-cart-plus'/>
@@ -74,7 +74,7 @@ class Shop extends Component {
 }
 
 function mapStateToProps(state) {
-    const [ categories, filteredProducts ] = state.shop;
+    const { categories, filteredProducts } = state.shop;
     return {
         categories,
         filteredProducts

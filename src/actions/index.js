@@ -5,6 +5,14 @@ import {
 } from './headernavbar'
 
 import {
+    fetchUserPurchases,
+    setPurchaseDetail,
+    fetchCartProducts,
+    addCartProduct,
+    signIn
+} from './users';
+
+import {
     fetchShopCategories,
     fetchShopProducts,
     filterProductsWithCategoryId,
@@ -15,6 +23,12 @@ export {
     setHeaderLinks,
     setNavbarLinks,
     changeNavbarActive,
+
+    fetchUserPurchases,
+    setPurchaseDetail,
+    fetchCartProducts,
+    addCartProduct,
+    signIn,
 
     fetchShopCategories,
     fetchShopProducts,

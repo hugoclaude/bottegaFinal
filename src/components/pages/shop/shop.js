@@ -16,20 +16,29 @@ class Shop extends Component {
         }
     }
 
-    componentDidMount() {
-        const headerLinks = [
-            {
-                _id: 0,
-                title: 'Login',
-                path: '/signin'
-            }
-        ]
-        this.props.setHeaderLinks(headerLinks);
-        this.props.fetchShopCategories();
 
-        //filter products with links
-        this.props.fetchShopProduct();
+    componentDidMount() {
+        this.props.setHeaderLinks([]);
+        this.props.setNavbarLinks([]);
+
+        this.props.fetchShopCategories();
+        this.props.fetchShopProducts();
     }
+
+    // componentDidMount() {
+    //     const headerLinks = [
+    //         {
+    //             _id: 0,
+    //             title: 'Login',
+    //             path: '/signin'
+    //         }
+    //     ]
+    //     this.props.setHeaderLinks(headerLinks);
+    //     this.props.fetchShopCategories();
+
+    //     //filter products with links
+    //     this.props.fetchShopProduct();
+    // }
 
     shouldComponentUpdate(nextProps) {
         if(this.props != nextProps) {
@@ -46,7 +55,7 @@ class Shop extends Component {
         if(document.getElementById('shop-cart').classList.contains('cart-hidden')) {
             document.getElementById('shop-cart').classList.remove('cart-hidden');
         }else {
-            document.getElementById('sho-cart').classList.add('cart-hidden');
+            document.getElementById('shop-cart').classList.add('cart-hidden');
         }
     }
 
@@ -64,7 +73,7 @@ class Shop extends Component {
                     }
                 </div>
                 {
-                    this.state.showCart ? <ShopCart className='shop__cart' /> : ''
+                    this.state.showCart ? <ShopCart className='shop__cart'/> : ''
                 }
 
                 <CartButton onClick={this.handleAddToCart} className='shop__cart-button' icon='fas fa-cart-plus'/>

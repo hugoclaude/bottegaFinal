@@ -129,22 +129,26 @@ export default class App extends Component {
 
                     <Route path='/signup' exact component={SignUp} />
 
-                    {this.state.loggedInStatus === 'LOGGED_IN'
-                        ? this.authorizedPages()
-                        :null}
+                    <Route path='/shop' exact component={Shop} />
 
-                    <Route
+                    <Route path='/checkout' exact component={Checkout} />
+
+                    {/* {this.state.loggedInStatus === 'LOGGED_IN'
+                        ? this.authorizedPages()
+                        :null} */}
+
+                    {/* <Route
                         path='/shop' exact component={Shop}
-                        // render={(props) => (
-                        //     <Shop {...props} loggedInStatus={this.state.loggedInStatus} />
-                        // )}
+                        render={(props) => (
+                            <Shop {...props} loggedInStatus={this.state.loggedInStatus} />
+                        )}
                     />
                     <Route
                         path='/checkout' exact component={Checkout}
-                        // render={(props) => (
-                        //     <Checkout {...props} loggedInStatus={this.state.loggedInStatus} />
-                        // )}
-                    />
+                        render={(props) => (
+                            <Checkout {...props} loggedInStatus={this.state.loggedInStatus} />
+                        )}
+                    /> */}
                     {/* <Route
                         path='/thankyou'
                         render={(props) => (

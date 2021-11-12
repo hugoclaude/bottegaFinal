@@ -2,7 +2,7 @@ import {
     setHeaderLinks,
     setNavbarLinks,
     changeNavbarActive
-} from './headernavbar'
+} from './headernavbar';
 
 import {
     fetchUserPurchases,
@@ -17,7 +17,7 @@ import {
     fetchShopProducts,
     filterProductsWithCategoryId,
     filterProductsWithQuery,
-} from './shop'
+} from './shop';
 
 export {
     setHeaderLinks,
@@ -33,5 +33,6 @@ export {
     fetchShopCategories,
     fetchShopProducts,
     filterProductsWithCategoryId,
+    
     filterProductsWithQuery
 };

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
+
+
 import * as actions from '../../../actions';
 import ShopSearchBar from './shopSearchBar';
 import ShopProduct from './shopProduct';
@@ -17,28 +19,28 @@ class Shop extends Component {
     }
 
 
-    componentDidMount() {
-        this.props.setHeaderLinks([]);
-        this.props.setNavbarLinks([]);
+    // componentDidMount() {
+    //     this.props.setHeaderLinks([]);
+    //     this.props.setNavbarLinks([]);
 
+    //     this.props.fetchShopCategories();
+    //     this.props.fetchShopProducts();
+    // }
+
+    componentDidMount() {
+        const headerLinks = [
+            {
+                _id: 0,
+                title: 'Login',
+                path: '/signin'
+            }
+        ]
+        this.props.setHeaderLinks(headerLinks);
         this.props.fetchShopCategories();
+
+        //filter products with links
         this.props.fetchShopProducts();
     }
-
-    // componentDidMount() {
-    //     const headerLinks = [
-    //         {
-    //             _id: 0,
-    //             title: 'Login',
-    //             path: '/signin'
-    //         }
-    //     ]
-    //     this.props.setHeaderLinks(headerLinks);
-    //     this.props.fetchShopCategories();
-
-    //     //filter products with links
-    //     this.props.fetchShopProduct();
-    // }
 
     shouldComponentUpdate(nextProps) {
         if(this.props != nextProps) {

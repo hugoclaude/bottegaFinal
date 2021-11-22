@@ -39,13 +39,13 @@ const NavigationComponent = (props) => {
                     </NavLink>
                 </div>
                 
-                <div className='nav-link-wrapper'>
+                {/* <div className='nav-link-wrapper'>
                     <NavLink to='/signup' activeClassName='nav-link-active'>
                         Signup
                     </NavLink>
-                </div>
+                </div> */}
 
-                <div className='nav-link-wrapper'>
+                {/* <div className='nav-link-wrapper'>
                     <NavLink to='/shop' activeClassName='nav-link-active'>
                         Shop
                     </NavLink>
@@ -55,7 +55,11 @@ const NavigationComponent = (props) => {
                     <NavLink to='/checkout' activeClassName='nav-link-active'>
                         Checkout
                     </NavLink>
-                </div>
+                </div> */}
+
+                {props.loggedInStatus === "LOGGED_OUT" ? (
+                    dynamicLink('/signup', 'Signup')
+                ) : null}
 
                 {props.loggedInStatus === "LOGGED_IN" ? (
                     dynamicLink('/shop', 'Shop')

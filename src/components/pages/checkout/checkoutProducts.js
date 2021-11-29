@@ -8,10 +8,10 @@ class CheckoutProducts extends Component {
     render () {
         const { className } = this.props;
         return (
-            <div className={`${className} review-products`}>
+            <div className={`${className} checkout-products`}>
                 {
                     this.props.cartProducts.map(cartProduct => {
-                        return <ReviewProduct
+                        return <CheckoutProduct
                         key={cartProduct._id}
                         {...cartProduct}
                         />

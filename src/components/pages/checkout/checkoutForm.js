@@ -19,7 +19,7 @@ class CheckoutForm extends Component {
                     <div className='checkout-form__legend__price'>Price</div>
                 </div>
 
-                <ReviewProducts className='checkout-form__products'/>
+                <CheckoutProducts className='checkout-form__products'/>
 
                 <div className='checkout-form__line'></div>
 

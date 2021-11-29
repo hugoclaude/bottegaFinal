@@ -1,12 +1,11 @@
-import React from 'react';
+import React from "react";
 
-
-function CartButton ({cartButton, icon, onClick}) {
+function CartButton({ className, icon, onClick }) {
     return (
         <a onClick={onClick} className={`${className} cart-button`}>
-            <i className={icon}/>
+            <i className={icon} />
         </a>
-    )
+    );
 }
 
 export default CartButton;

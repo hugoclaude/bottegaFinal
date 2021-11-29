@@ -30,7 +30,7 @@ function CartFooter({ className, products }) {
     return (
         <div className={`${className} cart-footer`}>
             <a
-                onCLick={() => history.push("./checkout")}
+                onClick={() => history.push("./checkout")}
                 className="cart-footer__checkout"
             >
                 Checkout
